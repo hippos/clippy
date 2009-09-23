@@ -1,0 +1,6 @@
+menuItem_Edit="Edit...";
+menuItem_Reload="Reload";
+menuItem_Quit="Quit";
+menuItem_History="History";
+menuItem_ClearHistory="Clear";
+menuItem_Hotkey="HotKey...";

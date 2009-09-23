@@ -1,0 +1,6 @@
+menuItem_Edit="編集...";
+menuItem_Reload="再構築";
+menuItem_Quit="終了";
+menuItem_History="履歴";
+menuItem_ClearHistory="履歴消去";
+menuItem_Hotkey="ホットキー...";

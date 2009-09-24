@@ -116,7 +116,7 @@ EventHotKeyRef hot_key_ref;
   [menuMaxTag release];
   [clippy_info.clippyBaseMenu release];
   /** BT-00082 **/
-	[aliasDictionary release];
+  [aliasDictionary release];
 }
 
 - (NSArray *)readLinesToArray:(NSURL *)fileURL
@@ -173,7 +173,7 @@ EventHotKeyRef hot_key_ref;
 							NSError* error = nil;
 							NSString* alias   =  [trimedString stringByMatching:aliasRegex withReferenceString:@"$1"];
 							NSString* fileurl =  [trimedString stringByMatching:aliasRegex withReferenceString:@"$2"];
-              NSString* instans = [[NSData dataWithContentsOfURL:[NSURL URLWithString:fileurl]] stringByNKFWithOptions:@"-w" error:&error];
+							NSString* instans = [[NSData dataWithContentsOfURL:[NSURL URLWithString:fileurl]] stringWithNkf:@"-w" error:&error];
 							if (alias != nil && [alias length] > 0 && error==nil && instans != nil && [instans length] > 0)
 								{
 									[aliasDictionary setValue:instans forKey:alias];
@@ -508,7 +508,7 @@ EventHotKeyRef hot_key_ref;
 				}
 			else
 				{
-      		tempString = [menuItem title];
+					tempString = [menuItem title];
 				}
     }
 

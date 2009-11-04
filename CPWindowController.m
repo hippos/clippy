@@ -7,14 +7,13 @@
 //
 
 #import "CPWindowController.h"
-#import "RegexKit/RKRegex.h"
 #import "UKKQueue/UKKQueue.h"
 #import "SEGlue/SEGlue.h"
 #import "PTHotKey/PTHotKey.h"
 #import "PTHotKey/PTHotKeyCenter.h"
 #import "PTHotKey/PTKeyComboPanel.h"
 #import "MLGlue/MLGlue.h"
-#import "NKFCocoa/NKFCocoa.h"
+#import "RegexKitLite/RegexKitLite.h"
 
 #define MENUITEM_BASE_TAG         10
 #define MAX_HISTORY               10
@@ -64,8 +63,17 @@ EventHotKeyRef hot_key_ref;
     }
 
   /* clip text data file last modification datetime */
-  NSDictionary *attr     = [[NSFileManager defaultManager] fileAttributesAtPath:pathToDataText traverseLink:YES];
-  NSDate       *tempDate = [attr objectForKey:NSFileModificationDate];
+  NSError      *error = nil;
+  NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:pathToDataText error:&error];
+  NSDate       *tempDate = nil;
+  if (error != nil)
+  {
+    tempDate = [attr objectForKey:NSFileModificationDate];
+  }
+  else
+  {
+    tempDate = [NSDate date];
+  }
   lastModificationDate = [tempDate copyWithZone:nil];
 
   /* add observe path for Resource */
@@ -139,7 +147,7 @@ EventHotKeyRef hot_key_ref;
   NSMutableString *trimedString = nil;
 
 	/** BT-00082 **/
-	RKRegex         *aliasRegex   = @"^alias\\s*:\\s*(\\S+\\s*):\\s*((http|https|file):\\S+)";
+	NSString        *aliasRegex   = @"^alias\\s*:\\s*(\\S+\\s*):\\s*((http|https|file):\\S+)";
 	[aliasDictionary removeAllObjects];
   
   while ((tempString = [enumerator nextObject]) != nil)
@@ -150,8 +158,12 @@ EventHotKeyRef hot_key_ref;
           continue;
         }
       trimedString = [NSMutableString stringWithString:tempString];
-      [trimedString match:@"^\\s+" replace:RKReplaceAll withString:@""];
-      [tempString getCapturesWithRegexAndReferences:@"^\\s*([\\*#])", @"${1}", &captureString, nil];
+      [trimedString replaceOccurrencesOfRegex:@"^\\s+" withString:@""];
+      NSArray* captures = [tempString captureComponentsMatchedByRegex:@"^\\s*([\\*#])"];
+      if ([captures count] > 0)
+      {
+        captureString = [NSString stringWithString:[captures objectAtIndex:1]];
+      }      
       if (captureString != nil && ([captureString compare:@"#"] == NSOrderedSame))
         {
           continue;
@@ -159,7 +171,7 @@ EventHotKeyRef hot_key_ref;
       if (captureString != nil && ([captureString compare:@"*"] == NSOrderedSame))
         {
           unsigned int i = 0;
-          [trimedString match:@"^\\*\\s+" replace:RKReplaceAll withString:@""];
+          [trimedString replaceOccurrencesOfRegex:@"^\\*\\s+" withString:@""];
           for (i = 0; i <[trimedString length]; i++)
             {
               [clippies addObject:[NSString stringWithFormat:@"%C", [trimedString characterAtIndex:i]]];
@@ -170,14 +182,15 @@ EventHotKeyRef hot_key_ref;
 					/** BT-00082 **/
 					if ([trimedString isMatchedByRegex:aliasRegex])
 						{
-							NSError* error = nil;
-							NSString* alias   =  [trimedString stringByMatching:aliasRegex withReferenceString:@"$1"];
-							NSString* fileurl =  [trimedString stringByMatching:aliasRegex withReferenceString:@"$2"];
-							NSString* instans = [[NSData dataWithContentsOfURL:[NSURL URLWithString:fileurl]] stringWithNkf:@"-w" error:&error];
-							if (alias != nil && [alias length] > 0 && error==nil && instans != nil && [instans length] > 0)
+							NSError  *error = nil;
+              NSArray  *alcaptures = [trimedString captureComponentsMatchedByRegex:aliasRegex];
+              NSString *contents = [NSString stringWithContentsOfURL:
+                                    [NSURL URLWithString:[alcaptures objectAtIndex:2]]
+                                                            encoding:NSUTF8StringEncoding error:&error];
+              if (([alcaptures count] == 4) && (error == nil) && (contents != nil && [contents length] > 0))
 								{
-									[aliasDictionary setValue:instans forKey:alias];
-                  [clippies addObject:alias];
+									[aliasDictionary setValue:contents forKey:[alcaptures objectAtIndex:1]];
+                  [clippies addObject:[alcaptures objectAtIndex:1]];
 								}
               else
               {
@@ -330,15 +343,25 @@ EventHotKeyRef hot_key_ref;
 
 - (void)editTextHandler:(NSNotification *)notification
 {
-  NSDictionary *attr = [[NSFileManager defaultManager] fileAttributesAtPath:pathToDataText traverseLink:YES];
+  NSError      *error = nil;
+  NSDictionary *attr  = [[NSFileManager defaultManager] attributesOfItemAtPath:pathToDataText error:&error];
 
-
-  if ([lastModificationDate compare:[attr objectForKey:NSFileModificationDate]] == NSOrderedAscending)
+  if (error == nil)
+  {
+    if ([lastModificationDate compare:[attr objectForKey:NSFileModificationDate]] == NSOrderedAscending)
     {
       [self reloadText:self];
       [lastModificationDate release];
       lastModificationDate = [[attr objectForKey:NSFileModificationDate] copyWithZone:nil];
     }
+  }
+
+  if ([lastModificationDate compare:[attr objectForKey:NSFileModificationDate]] == NSOrderedAscending)
+  {
+    [self reloadText:self];
+    [lastModificationDate release];
+    lastModificationDate = [[attr objectForKey:NSFileModificationDate] copyWithZone:nil];
+  }
 }
 
 - (IBAction)reloadText:(id)sender
@@ -475,7 +498,7 @@ EventHotKeyRef hot_key_ref;
   NSPasteboard *generalPasteboard = [NSPasteboard generalPasteboard];
   NSMenuItem   *menuItem          = (NSMenuItem *)sender;
   NSString     *tempString        = nil;
-  RKRegex      *URIRegex          = @"((http|https)\\://[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\\-\\._\\?\\,\\'/\\\\\\+&amp;%\\$#\\=~])*[^\\.\\,\\)\(\\s]$)";
+  NSString     *URIRegex          = @"((http|https)\\://[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\\-\\._\\?\\,\\'/\\\\\\+&amp;%\\$#\\=~])*[^\\.\\,\\)\(\\s]$)";
 
   if ([[menuItem title] isMatchedByRegex:@"(%\\d*[aAbBc-eFHIJmMpSwxXyYzZ])+"])
     {
@@ -485,13 +508,13 @@ EventHotKeyRef hot_key_ref;
     }
   else if ([[menuItem title] isMatchedByRegex:URIRegex])
     {
-      tempString = [[menuItem title] stringByMatching:URIRegex withReferenceString:@"$1"];
+      tempString = [[menuItem title] stringByMatching:URIRegex capture:1L];
       [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:tempString]];
       tempString = [menuItem title];
     }
   else if ([[menuItem title] isMatchedByRegex:@"[\\w-]+@([\\w-]+\\.)+[\\w-]+"])
     {
-      tempString = [[menuItem title] stringByMatching:@"[\\w-]+@([\\w-]+\\.)+[\\w-]+" withReferenceString:@"$0"];
+      tempString = [[menuItem title] stringByMatching:@"[\\w-]+@([\\w-]+\\.)+[\\w-]+" capture:1L];
       if ([[menuItem title] isMatchedByRegex:@"^mailto\\s*:"])
         {
           [self createMailMessage:tempString];

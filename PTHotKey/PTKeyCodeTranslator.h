@@ -6,25 +6,21 @@
 //  Copyright (c) 2003 Cliché Software. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#include <Carbon/Carbon.h>
-#include <CoreServices/CoreServices.h>
+#import <Carbon/Carbon.h>
 
 @interface PTKeyCodeTranslator : NSObject
 {
-    KeyboardLayoutRef	keyboardLayout;
-    UCKeyboardLayout	*uchrData;
-    void		*KCHRData;
-    SInt32		keyLayoutKind;
+    TISInputSourceRef	keyboardLayout;
+    const UCKeyboardLayout	*uchrData;
     UInt32		keyTranslateState;
     UInt32		deadKeyState;
 }
 
 + (id)currentTranslator;
 
-- (id)initWithKeyboardLayout:(KeyboardLayoutRef)aLayout;
+- (id)initWithKeyboardLayout:(TISInputSourceRef)aLayout;
 - (NSString *)translateKeyCode:(short)keyCode;
 
-- (KeyboardLayoutRef)keyboardLayout;
+- (TISInputSourceRef)keyboardLayout;
 
 @end

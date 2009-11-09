@@ -19,17 +19,17 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.6</string>
+	<string>0.6.1</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-        <key>LSMinimumSystemVersionByArchitecture</key>
-        <dict>
-               <key>x86_64</key>
-               <string>10.6.0</string>
-        </dict>
+	<key>LSMinimumSystemVersionByArchitecture</key>
+	<dict>
+		<key>x86_64</key>
+		<string>10.6.0</string>
+	</dict>
 </dict>
 </plist>

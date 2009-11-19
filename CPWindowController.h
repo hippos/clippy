@@ -51,6 +51,7 @@ typedef struct
 - (IBAction) setHotKey:(id)sender;
 /** BT-00076 */
 - (IBAction) clearHistory:(id)sender;
+- (void)preferenceNotification:(NSNotification *)myNotification;
 
 OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData);
 @end

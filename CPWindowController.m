@@ -112,6 +112,12 @@ EventHotKeyRef hot_key_ref;
   history = [[NSMutableArray alloc] init];
   [NSTimer scheduledTimerWithTimeInterval:2.25 target:self selector:@selector(checkpboard:) userInfo:nil repeats:YES];
 
+  NSString *observedObject = @"com.hippos-lab.clippy";
+  NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
+  [center addObserver: self
+             selector: @selector(preferenceNotification:)
+                 name: @"clippyPref Notification"
+               object: observedObject];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification
@@ -658,4 +664,9 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
   
 }
 
+- (void)preferenceNotification:(NSNotification *)myNotification
+{
+  NSDictionary* properties = [myNotification userInfo];
+  /* somthing todo */
+}
 @end

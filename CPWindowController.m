@@ -20,7 +20,10 @@
 
 EventHotKeyRef hot_key_ref;
 
+
 @implementation CPWindowController
+
+@synthesize checkpboard_t;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -98,19 +101,19 @@ EventHotKeyRef hot_key_ref;
 
   /* default history count */
   NSNumber *mh = [[NSUserDefaults standardUserDefaults] objectForKey:@"clippyMaxHistory"];
-  if ((mh != nil) && ([mh unsignedIntValue] > 0))
+  if ((mh != nil) && ([mh unsignedIntegerValue] > 0))
     {
-      max_history = [NSNumber numberWithUnsignedInt:[mh unsignedIntValue]];
+      max_history = [NSNumber numberWithUnsignedInteger:[mh unsignedIntegerValue]];
     }
   else
     {
-      max_history = [NSNumber numberWithUnsignedInt:MAX_HISTORY];
+      max_history = [NSNumber numberWithUnsignedInteger:MAX_HISTORY];
     }
 
   /* pasteboard history */
   pboard  = [NSPasteboard generalPasteboard];
   history = [[NSMutableArray alloc] init];
-  [NSTimer scheduledTimerWithTimeInterval:2.25 target:self selector:@selector(checkpboard:) userInfo:nil repeats:YES];
+  checkpboard_t = [NSTimer scheduledTimerWithTimeInterval:2.25 target:self selector:@selector(checkpboard:) userInfo:nil repeats:YES];
 
   NSString *observedObject = @"com.hippos-lab.clippy";
   NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
@@ -131,6 +134,8 @@ EventHotKeyRef hot_key_ref;
   [clippy_info.clippyBaseMenu release];
   /** BT-00082 **/
   [aliasDictionary release];
+  [checkpboard_t invalidate];
+  self.checkpboard_t = nil;
 }
 
 - (NSArray *)readLinesToArray:(NSURL *)fileURL
@@ -423,7 +428,7 @@ EventHotKeyRef hot_key_ref;
   [lastClipboardText release];
   lastClipboardText = nil;
 
-  if ([history count] >= [max_history unsignedIntValue])
+  if ([history count] >= [max_history unsignedIntegerValue])
     {
       [history removeLastObject];
     }
@@ -667,6 +672,44 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
 - (void)preferenceNotification:(NSNotification *)myNotification
 {
   NSDictionary* properties = [myNotification userInfo];
-  /* somthing todo */
+  if ([[properties allKeys] containsObject:@"clippyMaxHistory"] == YES)
+  {
+    [self changeMaxHistory:[properties objectForKey:@"clippyMaxHistory"]];
+  }
 }
+
+- (void)changeMaxHistory:(NSNumber *)maxHistory
+{
+  if ([maxHistory unsignedIntegerValue] == 0)
+  {
+    [self clearHistory:self];
+    if ([checkpboard_t isValid])
+    {
+      [checkpboard_t invalidate];
+      self.checkpboard_t = nil;
+    }
+  }
+  else
+  {
+    if ([max_history unsignedIntegerValue] > [maxHistory unsignedIntegerValue])
+    {
+      unsigned int remove_count = [max_history unsignedIntegerValue] - [maxHistory unsignedIntegerValue];
+      while (remove_count > 0)
+      {
+        if ([history count] == 0)
+        {
+          break;
+        }
+        [history removeLastObject];
+      }
+      [self rebuildHistory];
+    }
+    if (![checkpboard_t isValid])
+    {
+      checkpboard_t = [NSTimer scheduledTimerWithTimeInterval:2.25 target:self selector:@selector(checkpboard:) userInfo:nil repeats:YES];
+    }
+  }
+  max_history = maxHistory;
+}
+
 @end

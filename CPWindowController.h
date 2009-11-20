@@ -31,7 +31,10 @@ typedef struct
   _clippy_info   clippy_info;
   /** BT-00082 */
 	NSMutableDictionary* aliasDictionary;
+  NSTimer        *checkpboard_t;
 }
+
+@property (nonatomic, retain) NSTimer *checkpboard_t;
 
 - (void)     applicationDidFinishLaunching:(NSNotification *)aNotification;
 - (void)     applicationWillTerminate:(NSNotification *)notification;
@@ -52,6 +55,7 @@ typedef struct
 /** BT-00076 */
 - (IBAction) clearHistory:(id)sender;
 - (void)preferenceNotification:(NSNotification *)myNotification;
+- (void)changeMaxHistory:(NSNumber*)maxHistory;
 
 OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData);
 @end

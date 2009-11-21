@@ -10,6 +10,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class PTKeyCombo;
+@class UKKQueue;
 
 typedef struct
 {
@@ -32,6 +33,7 @@ typedef struct
   /** BT-00082 */
 	NSMutableDictionary* aliasDictionary;
   NSTimer        *checkpboard_t;
+  UKKQueue       *kqueue;
 }
 
 @property (nonatomic, retain) NSTimer *checkpboard_t;
@@ -56,6 +58,7 @@ typedef struct
 - (IBAction) clearHistory:(id)sender;
 - (void)preferenceNotification:(NSNotification *)myNotification;
 - (void)changeMaxHistory:(NSNumber*)maxHistory;
+- (void)changeTextData:(NSNumber*)useClippyText textPath:(NSString*)textPath;
 
 OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData);
 @end

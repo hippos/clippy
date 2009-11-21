@@ -56,7 +56,12 @@ EventHotKeyRef hot_key_ref;
   [sbImage release];
 
   /* data text */
-  pathToDataText = [[NSBundle mainBundle] pathForResource:@"clippy" ofType:@"txt"];
+  NSNumber* useClippyText = [[NSUserDefaults standardUserDefaults] objectForKey:@"useClippyText"];
+  pathToDataText = [[NSUserDefaults standardUserDefaults] objectForKey:@"clippyTextPath"];  
+  if (([useClippyText boolValue] == YES) || (pathToDataText == nil))
+  {
+    pathToDataText = [[NSBundle mainBundle] pathForResource:@"clippy" ofType:@"txt"];
+  }
   [pathToDataText retain];
   NSArray *items = [self readLinesToArray:[NSURL fileURLWithPath:pathToDataText]];
   if (items != nil && [items count] > 0)
@@ -69,7 +74,7 @@ EventHotKeyRef hot_key_ref;
   NSError      *error = nil;
   NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:pathToDataText error:&error];
   NSDate       *tempDate = nil;
-  if (error != nil)
+  if (error == nil)
   {
     tempDate = [attr objectForKey:NSFileModificationDate];
   }
@@ -81,8 +86,9 @@ EventHotKeyRef hot_key_ref;
 
   /* add observe path for Resource */
   NSNotificationCenter *swnc     = [[NSWorkspace sharedWorkspace] notificationCenter];
-  UKKQueue             *l_kqueue = [UKKQueue sharedFileWatcher];
-  [l_kqueue addPathToQueue:[pathToDataText stringByDeletingLastPathComponent]];
+  kqueue = [UKKQueue sharedFileWatcher];
+	[kqueue addPathToQueue:[pathToDataText stringByDeletingLastPathComponent] 
+          notifyingAbout: UKKQueueNotifyAboutWrite]; 
   [swnc addObserver:self selector:@selector(editTextHandler:) name:UKFileWatcherWriteNotification object:nil];
 
   /* default hot key */
@@ -366,13 +372,6 @@ EventHotKeyRef hot_key_ref;
       lastModificationDate = [[attr objectForKey:NSFileModificationDate] copyWithZone:nil];
     }
   }
-
-  if ([lastModificationDate compare:[attr objectForKey:NSFileModificationDate]] == NSOrderedAscending)
-  {
-    [self reloadText:self];
-    [lastModificationDate release];
-    lastModificationDate = [[attr objectForKey:NSFileModificationDate] copyWithZone:nil];
-  }
 }
 
 - (IBAction)reloadText:(id)sender
@@ -559,7 +558,7 @@ EventHotKeyRef hot_key_ref;
 
 - (IBAction)editTextData:(id)sender
 {
-  [[NSWorkspace sharedWorkspace] openFile:[[NSBundle mainBundle] pathForResource:@"clippy" ofType:@"txt"] withApplication:@"TextEdit"];
+  [[NSWorkspace sharedWorkspace] openFile:pathToDataText withApplication:@"TextEdit"];
 }
 
 - (IBAction)clearHistory:(id)sender
@@ -676,6 +675,12 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
   {
     [self changeMaxHistory:[properties objectForKey:@"clippyMaxHistory"]];
   }
+  if (([[properties allKeys] containsObject:@"useClippyText"] == YES) ||
+      ([[properties allKeys] containsObject:@"clippyTextPath"] == YES))
+  {
+    [self changeTextData:[properties objectForKey:@"useClippyText" ]
+                textPath:[properties objectForKey:@"clippyTextPath"]];
+  }
 }
 
 - (void)changeMaxHistory:(NSNumber *)maxHistory
@@ -712,4 +717,37 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
   max_history = maxHistory;
 }
 
+- (void)changeTextData:(NSNumber*)useClippyText textPath:(NSString*)textPath
+{
+  NSString* tempPath = [NSString stringWithString:pathToDataText];
+  
+  [pathToDataText release];
+  if (textPath != nil)
+  {
+    pathToDataText = [NSString stringWithString:textPath]; 
+  }
+  if (([useClippyText boolValue] == YES) || (pathToDataText == nil))
+  {
+    pathToDataText = [[NSBundle mainBundle] pathForResource:@"clippy" ofType:@"txt"];
+  }
+  [pathToDataText retain];
+  
+  NSError      *error = nil;
+  NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:pathToDataText error:&error];
+  NSDate       *tempDate = nil;
+  if (error == nil)
+  {
+    tempDate = [attr objectForKey:NSFileModificationDate];
+  }
+  else
+  {
+    tempDate = [NSDate date];
+  }
+
+  lastModificationDate = [tempDate copyWithZone:nil];
+  
+  [kqueue removePathFromQueue:[tempPath stringByDeletingLastPathComponent]];
+  [kqueue addPathToQueue:[pathToDataText stringByDeletingLastPathComponent]];
+  [self reloadText:self];
+}
 @end

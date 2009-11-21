@@ -269,12 +269,12 @@ static UKKQueue * gUKKQueueSharedQueueSingleton = nil;
 
 -(void) removePathFromQueue: (NSString*)path
 {
-    int		l_index = 0;
+    //int		l_index = 0;
     int		fd = -1;
     
     AT_SYNCHRONIZED( self )
     {
-        l_index = [watchedPaths indexOfObject: path];
+        NSInteger l_index = [watchedPaths indexOfObject: path];
         
         if( l_index == NSNotFound )
             return;

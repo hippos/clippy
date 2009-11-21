@@ -499,7 +499,7 @@ EventHotKeyRef hot_key_ref;
   NSMenuItem   *menuItem          = (NSMenuItem *)sender;
   NSString     *tempString        = nil;
   NSString     *URIRegex          = @"((http|https)\\://[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\\-\\._\\?\\,\\'/\\\\\\+&amp;%\\$#\\=~])*[^\\.\\,\\)\(\\s]$)";
-  NSString     *MailRegex         = @"(([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z_])*@(([0-9a-zA-Z])+([-\\w]*[0-9a-zA-Z])*\\.)+[a-zA-Z]{2,9})$)";
+  NSString     *MailRegex         = @"([0-9a-zA-Z][-.\\w]*[0-9a-zA-Z_]*@(([0-9a-zA-Z])+([-\\w]*[0-9a-zA-Z])*\\.)+[a-zA-Z]+)";
 
   if ([[menuItem title] isMatchedByRegex:@"(%\\d*[aAbBc-eFHIJmMpSwxXyYzZ])+"])
   {

@@ -329,15 +329,6 @@ EventHotKeyRef hot_key_ref;
   [menuItem release];
   [clippy_info.clippyBaseMenu addItem:[NSMenuItem separatorItem]];
 
-  // Hotkey
-  menuItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]]
-              initWithTitle:NSLocalizedString(@"menuItem_Hotkey", "Hotkey") action:@selector(setHotKey:) keyEquivalent:@""];
-  [menuItem setTag:--tags];
-  [menuItem setTarget:self];
-  [clippy_info.clippyBaseMenu addItem:menuItem];
-  [menuItem release];
-  [clippy_info.clippyBaseMenu addItem:[NSMenuItem separatorItem]];
-
   // Edit
   menuItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]]
               initWithTitle:NSLocalizedString(@"menuItem_Edit", "Edit") action:@selector(editTextData:) keyEquivalent:@""];
@@ -498,7 +489,6 @@ EventHotKeyRef hot_key_ref;
   };
   InstallApplicationEventHandler(&cpHotKeyHandler, 1, eventType, &clippy_info, NULL);
   RegisterEventHotKey([keyCombo keyCode], [keyCombo modifiers], hot_key_id, GetApplicationEventTarget(), 0, &hot_key_ref);
-  [[NSUserDefaults standardUserDefaults] setObject: [keyCombo plistRepresentation] forKey: @"clippyKeyCombo"];
 }
 
 #pragma mark - IBAction
@@ -583,36 +573,6 @@ EventHotKeyRef hot_key_ref;
   [[clippy_info.clippyBaseMenu itemWithTag:MENUITEM_BASE_TAG - 1] setEnabled:NO];
   [[clippy_info.clippyBaseMenu itemWithTag:MENUITEM_BASE_TAG - 2] setEnabled:NO];
   
-}
-
-- (IBAction)setHotKey:(id)sender
-{
-  // save active app psn
-  ProcessSerialNumber psn = { 0, kCurrentProcess };
-
-  GetFrontProcess(&psn);
-
-  // activate clippy window
-  [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-
-  // make a hotkey
-  id          keyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey: @"clippyKeyCombo"];
-  PTKeyCombo *keyCombo      = [[PTKeyCombo alloc] initWithPlistRepresentation: keyComboPlist];
-  PTHotKey   *hotKey        = [[PTHotKey alloc] initWithIdentifier: @"clippyHotKey" keyCombo:keyCombo];
-  [hotKey setName: @"clippy HotKey"];
-
-  PTKeyComboPanel *panel = [PTKeyComboPanel sharedPanel];
-  [panel setKeyCombo: [hotKey keyCombo]];
-  [panel setKeyBindingName: [hotKey name]];
-  if ([panel runModal] == NSOKButton)
-    {
-      [self regHotKey:[panel keyCombo] update:YES];
-    }
-
-  // retun to active app
-  SetFrontProcess(&psn);
-  [hotKey release];
-  [keyCombo release];
 }
 
 #pragma mark - Carbon

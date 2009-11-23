@@ -24,17 +24,10 @@
 		A2296D370E5521290097C0DD /* CPWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D360E5521290097C0DD /* CPWindowController.m */; };
 		A2296D830E5538880097C0DD /* clippy.txt in Resources */ = {isa = PBXBuildFile; fileRef = A2296D820E5538880097C0DD /* clippy.txt */; };
 		A2C4B84B0E57847E0094C8C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2C4B84A0E57847E0094C8C8 /* Localizable.strings */; };
-		A2D742A30ECB7FFF0036A949 /* PTKeyCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2D7429F0ECB7FFE0036A949 /* PTKeyCodes.plist */; };
-		A2D742A40ECB7FFF0036A949 /* PTKeyComboPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = A2D742A10ECB7FFF0036A949 /* PTKeyComboPanel.nib */; };
 		A2E569CA0E59906C009E0818 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E569C90E59906C009E0818 /* Carbon.framework */; };
 		A2ECEA2410A21B9E00E373EA /* Appscript.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A21E156110A1904300852552 /* Appscript.framework */; };
-		A2F4149C0F7828990044677E /* PTHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414900F7828990044677E /* PTHotKey.m */; };
-		A2F4149D0F7828990044677E /* PTHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414920F7828990044677E /* PTHotKeyCenter.m */; };
-		A2F4149E0F7828990044677E /* PTKeyboardIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A2F414930F7828990044677E /* PTKeyboardIcon.tiff */; };
-		A2F4149F0F7828990044677E /* PTKeyBroadcaster.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414950F7828990044677E /* PTKeyBroadcaster.m */; };
 		A2F414A00F7828990044677E /* PTKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414970F7828990044677E /* PTKeyCodeTranslator.m */; };
 		A2F414A10F7828990044677E /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414990F7828990044677E /* PTKeyCombo.m */; };
-		A2F414A20F7828990044677E /* PTKeyComboPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F4149B0F7828990044677E /* PTKeyComboPanel.m */; };
 		A2F414AF0F7828AC0044677E /* SEApplicationGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414A50F7828AC0044677E /* SEApplicationGlue.m */; };
 		A2F414B00F7828AC0044677E /* SECommandGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414A70F7828AC0044677E /* SECommandGlue.m */; };
 		A2F414B10F7828AC0044677E /* SEConstantGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414A90F7828AC0044677E /* SEConstantGlue.m */; };
@@ -93,23 +86,11 @@
 		A2296D820E5538880097C0DD /* clippy.txt */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text; path = clippy.txt; sourceTree = "<group>"; };
 		A2C4B8480E5784510094C8C8 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2C4B84C0E57848F0094C8C8 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A2D742A00ECB7FFE0036A949 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/PTKeyCodes.plist; sourceTree = "<group>"; };
-		A2D742A20ECB7FFF0036A949 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/PTKeyComboPanel.nib; sourceTree = "<group>"; };
-		A2D8FB4D0ECC86B9003FE437 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/PTKeyComboPanel.nib; sourceTree = "<group>"; };
 		A2E569C90E59906C009E0818 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		A2F4148F0F7828990044677E /* PTHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKey.h; path = PTHotKey/PTHotKey.h; sourceTree = "<group>"; };
-		A2F414900F7828990044677E /* PTHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTHotKey.m; path = PTHotKey/PTHotKey.m; sourceTree = "<group>"; };
-		A2F414910F7828990044677E /* PTHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTHotKeyCenter.h; path = PTHotKey/PTHotKeyCenter.h; sourceTree = "<group>"; };
-		A2F414920F7828990044677E /* PTHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTHotKeyCenter.m; path = PTHotKey/PTHotKeyCenter.m; sourceTree = "<group>"; };
-		A2F414930F7828990044677E /* PTKeyboardIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = PTKeyboardIcon.tiff; path = PTHotKey/PTKeyboardIcon.tiff; sourceTree = "<group>"; };
-		A2F414940F7828990044677E /* PTKeyBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyBroadcaster.h; path = PTHotKey/PTKeyBroadcaster.h; sourceTree = "<group>"; };
-		A2F414950F7828990044677E /* PTKeyBroadcaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyBroadcaster.m; path = PTHotKey/PTKeyBroadcaster.m; sourceTree = "<group>"; };
 		A2F414960F7828990044677E /* PTKeyCodeTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCodeTranslator.h; path = PTHotKey/PTKeyCodeTranslator.h; sourceTree = "<group>"; };
 		A2F414970F7828990044677E /* PTKeyCodeTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCodeTranslator.m; path = PTHotKey/PTKeyCodeTranslator.m; sourceTree = "<group>"; };
 		A2F414980F7828990044677E /* PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCombo.h; path = PTHotKey/PTKeyCombo.h; sourceTree = "<group>"; };
 		A2F414990F7828990044677E /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCombo.m; path = PTHotKey/PTKeyCombo.m; sourceTree = "<group>"; };
-		A2F4149A0F7828990044677E /* PTKeyComboPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyComboPanel.h; path = PTHotKey/PTKeyComboPanel.h; sourceTree = "<group>"; };
-		A2F4149B0F7828990044677E /* PTKeyComboPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyComboPanel.m; path = PTHotKey/PTKeyComboPanel.m; sourceTree = "<group>"; };
 		A2F414A30F7828AC0044677E /* SEAEMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEAEMConstants.h; path = SEGlue/SEAEMConstants.h; sourceTree = "<group>"; };
 		A2F414A40F7828AC0044677E /* SEApplicationGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEApplicationGlue.h; path = SEGlue/SEApplicationGlue.h; sourceTree = "<group>"; };
 		A2F414A50F7828AC0044677E /* SEApplicationGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEApplicationGlue.m; path = SEGlue/SEApplicationGlue.m; sourceTree = "<group>"; };
@@ -214,9 +195,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A2F414930F7828990044677E /* PTKeyboardIcon.tiff */,
-				A2D7429F0ECB7FFE0036A949 /* PTKeyCodes.plist */,
-				A2D742A10ECB7FFF0036A949 /* PTKeyComboPanel.nib */,
 				A2C4B84A0E57847E0094C8C8 /* Localizable.strings */,
 				A2296D820E5538880097C0DD /* clippy.txt */,
 				A2296D310E5520D00097C0DD /* Pencil.png */,
@@ -302,18 +280,10 @@
 		A2D7428C0ECB7FC00036A949 /* HotKeyLib */ = {
 			isa = PBXGroup;
 			children = (
-				A2F4148F0F7828990044677E /* PTHotKey.h */,
-				A2F414900F7828990044677E /* PTHotKey.m */,
-				A2F414910F7828990044677E /* PTHotKeyCenter.h */,
-				A2F414920F7828990044677E /* PTHotKeyCenter.m */,
-				A2F414940F7828990044677E /* PTKeyBroadcaster.h */,
-				A2F414950F7828990044677E /* PTKeyBroadcaster.m */,
 				A2F414960F7828990044677E /* PTKeyCodeTranslator.h */,
 				A2F414970F7828990044677E /* PTKeyCodeTranslator.m */,
 				A2F414980F7828990044677E /* PTKeyCombo.h */,
 				A2F414990F7828990044677E /* PTKeyCombo.m */,
-				A2F4149A0F7828990044677E /* PTKeyComboPanel.h */,
-				A2F4149B0F7828990044677E /* PTKeyComboPanel.m */,
 			);
 			name = HotKeyLib;
 			sourceTree = "<group>";
@@ -367,9 +337,6 @@
 				A2296D320E5520D00097C0DD /* Pencil.png in Resources */,
 				A2296D830E5538880097C0DD /* clippy.txt in Resources */,
 				A2C4B84B0E57847E0094C8C8 /* Localizable.strings in Resources */,
-				A2D742A30ECB7FFF0036A949 /* PTKeyCodes.plist in Resources */,
-				A2D742A40ECB7FFF0036A949 /* PTKeyComboPanel.nib in Resources */,
-				A2F4149E0F7828990044677E /* PTKeyboardIcon.tiff in Resources */,
 				A21E164F10A1915D00852552 /* License.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,12 +355,8 @@
 				A2039B690F781DD300235DC8 /* MLConstantGlue.m in Sources */,
 				A2039B6A0F781DD300235DC8 /* MLReferenceGlue.m in Sources */,
 				A2039B6B0F781DD300235DC8 /* MLReferenceRendererGlue.m in Sources */,
-				A2F4149C0F7828990044677E /* PTHotKey.m in Sources */,
-				A2F4149D0F7828990044677E /* PTHotKeyCenter.m in Sources */,
-				A2F4149F0F7828990044677E /* PTKeyBroadcaster.m in Sources */,
 				A2F414A00F7828990044677E /* PTKeyCodeTranslator.m in Sources */,
 				A2F414A10F7828990044677E /* PTKeyCombo.m in Sources */,
-				A2F414A20F7828990044677E /* PTKeyComboPanel.m in Sources */,
 				A2F414AF0F7828AC0044677E /* SEApplicationGlue.m in Sources */,
 				A2F414B00F7828AC0044677E /* SECommandGlue.m in Sources */,
 				A2F414B10F7828AC0044677E /* SEConstantGlue.m in Sources */,
@@ -433,23 +396,6 @@
 				A2C4B84C0E57848F0094C8C8 /* Japanese */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		A2D7429F0ECB7FFE0036A949 /* PTKeyCodes.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A2D742A00ECB7FFE0036A949 /* English */,
-			);
-			name = PTKeyCodes.plist;
-			sourceTree = "<group>";
-		};
-		A2D742A10ECB7FFF0036A949 /* PTKeyComboPanel.nib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A2D742A20ECB7FFF0036A949 /* English */,
-				A2D8FB4D0ECC86B9003FE437 /* Japanese */,
-			);
-			name = PTKeyComboPanel.nib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

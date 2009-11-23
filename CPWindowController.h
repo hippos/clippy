@@ -53,7 +53,6 @@ typedef struct
 
 - (IBAction) copyMenuString:(id)sender;
 - (IBAction) editTextData:(id)sender;
-- (IBAction) setHotKey:(id)sender;
 /** BT-00076 */
 - (IBAction) clearHistory:(id)sender;
 - (void)preferenceNotification:(NSNotification *)myNotification;

@@ -681,6 +681,10 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
     [self changeTextData:[properties objectForKey:@"useClippyText" ]
                 textPath:[properties objectForKey:@"clippyTextPath"]];
   }
+  if ([[properties allKeys] containsObject:@"clippyKeyCombo"] == YES)
+  {
+    [self changeKeyCombo:[properties objectForKey:@"clippyKeyCombo"]];
+  }
 }
 
 - (void)changeMaxHistory:(NSNumber *)maxHistory
@@ -749,5 +753,16 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
   [kqueue removePathFromQueue:[tempPath stringByDeletingLastPathComponent]];
   [kqueue addPathToQueue:[pathToDataText stringByDeletingLastPathComponent]];
   [self reloadText:self];
+}
+
+- (void)changeKeyCombo:(id)keyComboDict
+{
+  if (keyComboDict == nil)
+  {
+    return;
+  }
+  PTKeyCombo *keyCombo = [[PTKeyCombo alloc] initWithPlistRepresentation: keyComboDict];
+  [self regHotKey:keyCombo update:YES];
+  [keyCombo release];
 }
 @end

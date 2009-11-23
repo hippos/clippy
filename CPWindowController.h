@@ -59,6 +59,7 @@ typedef struct
 - (void)preferenceNotification:(NSNotification *)myNotification;
 - (void)changeMaxHistory:(NSNumber*)maxHistory;
 - (void)changeTextData:(NSNumber*)useClippyText textPath:(NSString*)textPath;
+- (void)changeKeyCombo:(id)keyComboDict;
 
 OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData);
 @end

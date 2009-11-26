@@ -83,7 +83,7 @@
 		A2296D310E5520D00097C0DD /* Pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pencil.png; sourceTree = "<group>"; };
 		A2296D350E5521290097C0DD /* CPWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPWindowController.h; sourceTree = "<group>"; };
 		A2296D360E5521290097C0DD /* CPWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPWindowController.m; sourceTree = "<group>"; };
-		A2296D820E5538880097C0DD /* clippy.txt */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text; path = clippy.txt; sourceTree = "<group>"; };
+		A2296D820E5538880097C0DD /* clippy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clippy.txt; sourceTree = "<group>"; };
 		A2C4B8480E5784510094C8C8 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2C4B84C0E57848F0094C8C8 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2E569C90E59906C009E0818 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };

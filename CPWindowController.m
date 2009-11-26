@@ -150,7 +150,7 @@ EventHotKeyRef hot_key_ref;
 
 - (NSArray *)readLinesToArray:(NSURL *)fileURL
 {
-  NSError  *err;
+  NSError  *err = nil;
   NSString *rdata = [NSString stringWithContentsOfFile:[fileURL path] encoding:NSUTF8StringEncoding error:&err];
 
   if ((!rdata) || (err != nil))

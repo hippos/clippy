@@ -69,6 +69,10 @@ EventHotKeyRef hot_key_ref;
       [self createMenuItems:items];
       [self addClippyMenuItems];
     }
+  else
+  { 
+    [self addClippyMenuItems];
+  }
 
   /* clip text data file last modification datetime */
   NSError      *error = nil;
@@ -147,10 +151,11 @@ EventHotKeyRef hot_key_ref;
 - (NSArray *)readLinesToArray:(NSURL *)fileURL
 {
   NSError  *err;
-  NSString *rdata = [NSString stringWithContentsOfFile:[fileURL path] encoding:NSUnicodeStringEncoding error:&err];
+  NSString *rdata = [NSString stringWithContentsOfFile:[fileURL path] encoding:NSUTF8StringEncoding error:&err];
 
-  if (!rdata)
+  if ((!rdata) || (err != nil))
   {
+    NSLog(@"[clippy]: can't read %@ %@",[fileURL path],[err localizedDescription]);
     return nil;
   }
 

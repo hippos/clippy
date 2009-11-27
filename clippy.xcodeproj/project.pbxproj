@@ -24,6 +24,7 @@
 		A2296D370E5521290097C0DD /* CPWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D360E5521290097C0DD /* CPWindowController.m */; };
 		A2296D830E5538880097C0DD /* clippy.txt in Resources */ = {isa = PBXBuildFile; fileRef = A2296D820E5538880097C0DD /* clippy.txt */; };
 		A2C4B84B0E57847E0094C8C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2C4B84A0E57847E0094C8C8 /* Localizable.strings */; };
+		A2E14F0010BF2F7C00E8376A /* Paste.icns in Resources */ = {isa = PBXBuildFile; fileRef = A2E14EFF10BF2F7C00E8376A /* Paste.icns */; };
 		A2E569CA0E59906C009E0818 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E569C90E59906C009E0818 /* Carbon.framework */; };
 		A2ECEA2410A21B9E00E373EA /* Appscript.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A21E156110A1904300852552 /* Appscript.framework */; };
 		A2F414A00F7828990044677E /* PTKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414970F7828990044677E /* PTKeyCodeTranslator.m */; };
@@ -86,6 +87,7 @@
 		A2296D820E5538880097C0DD /* clippy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clippy.txt; sourceTree = "<group>"; };
 		A2C4B8480E5784510094C8C8 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2C4B84C0E57848F0094C8C8 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A2E14EFF10BF2F7C00E8376A /* Paste.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Paste.icns; sourceTree = "<group>"; };
 		A2E569C90E59906C009E0818 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		A2F414960F7828990044677E /* PTKeyCodeTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCodeTranslator.h; path = PTHotKey/PTKeyCodeTranslator.h; sourceTree = "<group>"; };
 		A2F414970F7828990044677E /* PTKeyCodeTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCodeTranslator.m; path = PTHotKey/PTKeyCodeTranslator.m; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A2E14EFF10BF2F7C00E8376A /* Paste.icns */,
 				A2C4B84A0E57847E0094C8C8 /* Localizable.strings */,
 				A2296D820E5538880097C0DD /* clippy.txt */,
 				A2296D310E5520D00097C0DD /* Pencil.png */,
@@ -338,6 +341,7 @@
 				A2296D830E5538880097C0DD /* clippy.txt in Resources */,
 				A2C4B84B0E57847E0094C8C8 /* Localizable.strings in Resources */,
 				A21E164F10A1915D00852552 /* License.rtf in Resources */,
+				A2E14F0010BF2F7C00E8376A /* Paste.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

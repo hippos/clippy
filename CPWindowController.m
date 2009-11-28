@@ -110,21 +110,23 @@ EventHotKeyRef hot_key_ref;
   [keyCombo release];
 
   /* default history count */
-  NSNumber *mh = [[NSUserDefaults standardUserDefaults] objectForKey:@"clippyMaxHistory"];
-  if ((mh != nil) && ([mh unsignedIntegerValue] > 0))
-    {
-      max_history = [NSNumber numberWithUnsignedInteger:[mh unsignedIntegerValue]];
-    }
-  else
+  max_history = [[NSUserDefaults standardUserDefaults] objectForKey:@"clippyMaxHistory"];
+  if (max_history == nil)
     {
       max_history = [NSNumber numberWithUnsignedInteger:MAX_HISTORY];
     }
+  interval = [[NSUserDefaults standardUserDefaults] objectForKey:@""];
+  if (interval == nil)
+  {
+    interval = [NSNumber numberWithDouble:2.5];
+  }
 
   /* pasteboard history */
   pboard  = [NSPasteboard generalPasteboard];
   history = [[NSMutableArray alloc] init];
-  checkpboard_t = [NSTimer scheduledTimerWithTimeInterval:2.25 target:self selector:@selector(checkpboard:) userInfo:nil repeats:YES];
-
+  NSTimer* aTimer = [NSTimer scheduledTimerWithTimeInterval:[interval doubleValue] target:self selector:@selector(checkpboard:) userInfo:nil repeats:YES];
+  checkpboard_t = aTimer;
+  
   NSString *observedObject = @"com.hippos-lab.clippy";
   NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
   [center addObserver: self
@@ -650,6 +652,10 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
   {
     [self changeKeyCombo:[properties objectForKey:@"clippyKeyCombo"]];
   }
+  if ([[properties allKeys] containsObject:@"clippyChkInterval"] == YES)
+  {
+    [self changeInterval:[properties objectForKey:@"clippyChkInterval"]];
+  }
 }
 
 - (void)changeMaxHistory:(NSNumber *)maxHistory
@@ -657,7 +663,7 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
   if ([maxHistory unsignedIntegerValue] == 0)
   {
     [self clearHistory:self];
-    if ([checkpboard_t isValid])
+    if (checkpboard_t != nil && ([checkpboard_t isValid]))
     {
       [checkpboard_t invalidate];
       self.checkpboard_t = nil;
@@ -678,10 +684,13 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
       }
       [self rebuildHistory];
     }
-    if (![checkpboard_t isValid])
+    if (checkpboard_t != nil)
     {
-      checkpboard_t = [NSTimer scheduledTimerWithTimeInterval:2.25 target:self selector:@selector(checkpboard:) userInfo:nil repeats:YES];
+      [checkpboard_t invalidate];
+      self.checkpboard_t = nil;
     }
+    NSTimer *aTimer = [NSTimer scheduledTimerWithTimeInterval:2.25 target:self selector:@selector(checkpboard:) userInfo:nil repeats:YES];
+    checkpboard_t = aTimer;
   }
   max_history = maxHistory;
 }
@@ -730,4 +739,17 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
   [self regHotKey:keyCombo update:YES];
   [keyCombo release];
 }
+
+- (void)changeInterval:(NSNumber *)val
+{
+  if (self.checkpboard_t != nil && ([checkpboard_t isValid]))
+  {
+    [checkpboard_t invalidate];
+    self.checkpboard_t = nil;
+  }
+  NSTimer *aTimer = [NSTimer scheduledTimerWithTimeInterval:[val doubleValue] target:self selector:@selector(checkpboard:) userInfo:nil repeats:YES];
+  checkpboard_t = aTimer;
+  interval      = val;
+}
+
 @end

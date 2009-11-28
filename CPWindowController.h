@@ -34,9 +34,10 @@ typedef struct
 	NSMutableDictionary* aliasDictionary;
   NSTimer        *checkpboard_t;
   UKKQueue       *kqueue;
+  NSNumber       *interval;
 }
 
-@property (nonatomic, retain) NSTimer *checkpboard_t;
+@property (nonatomic, assign) NSTimer *checkpboard_t;
 
 - (void)     applicationDidFinishLaunching:(NSNotification *)aNotification;
 - (void)     applicationWillTerminate:(NSNotification *)notification;
@@ -59,6 +60,7 @@ typedef struct
 - (void)changeMaxHistory:(NSNumber*)maxHistory;
 - (void)changeTextData:(NSNumber*)useClippyText textPath:(NSString*)textPath;
 - (void)changeKeyCombo:(id)keyComboDict;
+- (void)changeInterval:(NSNumber*)val;
 
 OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData);
 @end

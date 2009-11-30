@@ -652,9 +652,12 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
   {
     [self changeKeyCombo:[properties objectForKey:@"clippyKeyCombo"]];
   }
-  if ([[properties allKeys] containsObject:@"clippyChkInterval"] == YES)
+  if ([max_history integerValue] > 0)
   {
-    [self changeInterval:[properties objectForKey:@"clippyChkInterval"]];
+    if ([[properties allKeys] containsObject:@"clippyChkInterval"] == YES)
+    {
+      [self changeInterval:[properties objectForKey:@"clippyChkInterval"]];
+    }
   }
 }
 

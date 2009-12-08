@@ -8,12 +8,12 @@
 
 #import "CPWindowController.h"
 #import "UKKQueue/UKKQueue.h"
-#import "SEGlue/SEGlue.h"
 #import "PTHotKey/PTHotKey.h"
 #import "PTHotKey/PTHotKeyCenter.h"
 #import "PTHotKey/PTKeyComboPanel.h"
-#import "MLGlue/MLGlue.h"
 #import "RegexKitLite/RegexKitLite.h"
+#import "SystemEvents.h"
+#import "Mail.h"
 
 #define MENUITEM_BASE_TAG         10
 #define MAX_HISTORY               10
@@ -546,11 +546,15 @@ EventHotKeyRef hot_key_ref;
   [generalPasteboard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:self];
   [generalPasteboard setString:tempString forType:NSStringPboardType];
 
-  NSDictionary       *activeApp    = [[NSWorkspace sharedWorkspace] activeApplication];
-  SEApplication      *systemEvents = [SEApplication applicationWithName:@"System Events"];
-  SEReference        *ref          = [[systemEvents processes] byName:[activeApp valueForKey:@"NSApplicationName"]];
-  SEKeystrokeCommand *cmd          = [[ref keystroke: @"v"] using: [SEConstant commandDown]];
-  [cmd send];
+  SystemEventsApplication *systemEvents = [SBApplication applicationWithBundleIdentifier:@"com.apple.systemevents"];
+  [systemEvents keystroke:@"v" using:SystemEventsEMdsCommandDown];
+/*
+ * NSDictionary       *activeApp    = [[NSWorkspace sharedWorkspace] activeApplication];
+ * SEApplication      *systemEvents = [SEApplication applicationWithName:@"System Events"];
+ * SEReference        *ref          = [[systemEvents processes] byName:[activeApp valueForKey:@"NSApplicationName"]];
+ * SEKeystrokeCommand *cmd          = [[ref keystroke: @"v"] using: [SEConstant commandDown]];
+ * [cmd send];
+ */
 }
 
 - (IBAction)editTextData:(id)sender
@@ -602,8 +606,8 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
 #pragma mark - MailMessage
 
 - (void)createMailMessage:(NSString *)mailto
-{/*
-  MailApplication     *mail    = [SBApplication applicationWithBundleIdentifier:@"com.apple.Mail"];
+{
+  MailApplication     *mail = [SBApplication applicationWithBundleIdentifier:@"com.apple.Mail"];
 
   MailOutgoingMessage *message =
     [[[mail classForScriptingClass:@"outgoing message"] alloc]
@@ -617,22 +621,22 @@ OSStatus cpHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, voi
   [message.toRecipients addObject: recipi];
 
   [mail activate];
+
+/*
+ * MLApplication *mail    = [[MLApplication alloc] initWithBundleID: @"com.apple.mail"];
+ * MLMakeCommand *makeCmd = [[[mail make] new_: [MLConstant outgoingMessage]] withProperties:
+ *                          [NSDictionary dictionaryWithObjectsAndKeys :@"",[MLConstant subject],@"",[MLConstant content],[NSNumber numberWithInt:1],[MLConstant visible],nil]];
+ * NSError     *error = nil;
+ * MLReference *msg   = [makeCmd sendWithError: &error];
+ *
+ * makeCmd = [[[[mail make] new_: [MLConstant toRecipient]]
+ *            at: [[msg toRecipients] end]]
+ *           withProperties: [NSDictionary dictionaryWithObject: mailto
+ *                                                       forKey: [MLConstant address]]];
+ * [makeCmd sendWithError: &error];
+ * [[msg activate] send];
+ * [mail release];
  */
-  
-  MLApplication *mail    = [[MLApplication alloc] initWithBundleID: @"com.apple.mail"];
-  MLMakeCommand *makeCmd = [[[mail make] new_: [MLConstant outgoingMessage]] withProperties:
-                            [NSDictionary dictionaryWithObjectsAndKeys :@"",[MLConstant subject],@"",[MLConstant content],[NSNumber numberWithInt:1],[MLConstant visible],nil]];
-  NSError     *error = nil;
-  MLReference *msg   = [makeCmd sendWithError: &error];
-  
-  makeCmd = [[[[mail make] new_: [MLConstant toRecipient]]
-              at: [[msg toRecipients] end]]
-             withProperties: [NSDictionary dictionaryWithObject: mailto
-                                                         forKey: [MLConstant address]]];
-  [makeCmd sendWithError: &error];
-  [[msg activate] send];
-  [mail release];
-  
 }
 
 - (void)preferenceNotification:(NSNotification *)myNotification

@@ -11,29 +11,18 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		A2039B670F781DD300235DC8 /* MLApplicationGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2039B5D0F781DD300235DC8 /* MLApplicationGlue.m */; };
-		A2039B680F781DD300235DC8 /* MLCommandGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2039B5F0F781DD300235DC8 /* MLCommandGlue.m */; };
-		A2039B690F781DD300235DC8 /* MLConstantGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2039B610F781DD300235DC8 /* MLConstantGlue.m */; };
-		A2039B6A0F781DD300235DC8 /* MLReferenceGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2039B640F781DD300235DC8 /* MLReferenceGlue.m */; };
-		A2039B6B0F781DD300235DC8 /* MLReferenceRendererGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2039B660F781DD300235DC8 /* MLReferenceRendererGlue.m */; };
-		A21E156210A1904300852552 /* Appscript.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21E156110A1904300852552 /* Appscript.framework */; };
 		A21E163C10A1906F00852552 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A21E163B10A1906F00852552 /* libicucore.A.dylib */; };
 		A21E164F10A1915D00852552 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A21E164C10A1915D00852552 /* License.rtf */; };
 		A21E165010A1915D00852552 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = A21E164E10A1915D00852552 /* RegexKitLite.m */; };
 		A2296D320E5520D00097C0DD /* Pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = A2296D310E5520D00097C0DD /* Pencil.png */; };
 		A2296D370E5521290097C0DD /* CPWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D360E5521290097C0DD /* CPWindowController.m */; };
 		A2296D830E5538880097C0DD /* clippy.txt in Resources */ = {isa = PBXBuildFile; fileRef = A2296D820E5538880097C0DD /* clippy.txt */; };
+		A23D2A2D10CEFD1400BA421E /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23D2A2C10CEFD1400BA421E /* ScriptingBridge.framework */; };
 		A2A16ABA10C45E2E009BE185 /* clippy.icns in Resources */ = {isa = PBXBuildFile; fileRef = A2A16AB910C45E2E009BE185 /* clippy.icns */; };
 		A2C4B84B0E57847E0094C8C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2C4B84A0E57847E0094C8C8 /* Localizable.strings */; };
 		A2E569CA0E59906C009E0818 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E569C90E59906C009E0818 /* Carbon.framework */; };
-		A2ECEA2410A21B9E00E373EA /* Appscript.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A21E156110A1904300852552 /* Appscript.framework */; };
 		A2F414A00F7828990044677E /* PTKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414970F7828990044677E /* PTKeyCodeTranslator.m */; };
 		A2F414A10F7828990044677E /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414990F7828990044677E /* PTKeyCombo.m */; };
-		A2F414AF0F7828AC0044677E /* SEApplicationGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414A50F7828AC0044677E /* SEApplicationGlue.m */; };
-		A2F414B00F7828AC0044677E /* SECommandGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414A70F7828AC0044677E /* SECommandGlue.m */; };
-		A2F414B10F7828AC0044677E /* SEConstantGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414A90F7828AC0044677E /* SEConstantGlue.m */; };
-		A2F414B20F7828AC0044677E /* SEReferenceGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414AC0F7828AC0044677E /* SEReferenceGlue.m */; };
-		A2F414B30F7828AC0044677E /* SEReferenceRendererGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414AE0F7828AC0044677E /* SEReferenceRendererGlue.m */; };
 		A2F414BC0F7828C00044677E /* UKFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414B50F7828C00044677E /* UKFileWatcher.m */; };
 		A2F414BD0F7828C00044677E /* UKFNSubscribeFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414B70F7828C00044677E /* UKFNSubscribeFileWatcher.m */; };
 		A2F414BE0F7828C00044677E /* UKKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F414B90F7828C00044677E /* UKKQueue.m */; };
@@ -47,7 +36,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A2ECEA2410A21B9E00E373EA /* Appscript.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,19 +52,6 @@
 		32CA4F630368D1EE00C91783 /* clippy_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clippy_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* clippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2039B5B0F781DD300235DC8 /* MLAEMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLAEMConstants.h; path = MLGlue/MLAEMConstants.h; sourceTree = "<group>"; };
-		A2039B5C0F781DD300235DC8 /* MLApplicationGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLApplicationGlue.h; path = MLGlue/MLApplicationGlue.h; sourceTree = "<group>"; };
-		A2039B5D0F781DD300235DC8 /* MLApplicationGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLApplicationGlue.m; path = MLGlue/MLApplicationGlue.m; sourceTree = "<group>"; };
-		A2039B5E0F781DD300235DC8 /* MLCommandGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLCommandGlue.h; path = MLGlue/MLCommandGlue.h; sourceTree = "<group>"; };
-		A2039B5F0F781DD300235DC8 /* MLCommandGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLCommandGlue.m; path = MLGlue/MLCommandGlue.m; sourceTree = "<group>"; };
-		A2039B600F781DD300235DC8 /* MLConstantGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLConstantGlue.h; path = MLGlue/MLConstantGlue.h; sourceTree = "<group>"; };
-		A2039B610F781DD300235DC8 /* MLConstantGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLConstantGlue.m; path = MLGlue/MLConstantGlue.m; sourceTree = "<group>"; };
-		A2039B620F781DD300235DC8 /* MLGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLGlue.h; path = MLGlue/MLGlue.h; sourceTree = "<group>"; };
-		A2039B630F781DD300235DC8 /* MLReferenceGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLReferenceGlue.h; path = MLGlue/MLReferenceGlue.h; sourceTree = "<group>"; };
-		A2039B640F781DD300235DC8 /* MLReferenceGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLReferenceGlue.m; path = MLGlue/MLReferenceGlue.m; sourceTree = "<group>"; };
-		A2039B650F781DD300235DC8 /* MLReferenceRendererGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLReferenceRendererGlue.h; path = MLGlue/MLReferenceRendererGlue.h; sourceTree = "<group>"; };
-		A2039B660F781DD300235DC8 /* MLReferenceRendererGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLReferenceRendererGlue.m; path = MLGlue/MLReferenceRendererGlue.m; sourceTree = "<group>"; };
-		A21E156110A1904300852552 /* Appscript.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Appscript.framework; path = /Users/kazuot/Library/Frameworks/Appscript.framework; sourceTree = "<absolute>"; };
 		A21E163B10A1906F00852552 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libicucore.A.dylib; sourceTree = "<group>"; };
 		A21E164C10A1915D00852552 /* License.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = License.rtf; path = RegexKitLite/License.rtf; sourceTree = "<group>"; };
 		A21E164D10A1915D00852552 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = RegexKitLite/RegexKitLite.h; sourceTree = "<group>"; };
@@ -85,6 +60,9 @@
 		A2296D350E5521290097C0DD /* CPWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPWindowController.h; sourceTree = "<group>"; };
 		A2296D360E5521290097C0DD /* CPWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPWindowController.m; sourceTree = "<group>"; };
 		A2296D820E5538880097C0DD /* clippy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clippy.txt; sourceTree = "<group>"; };
+		A23D2A2210CEFC5000BA421E /* SystemEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemEvents.h; sourceTree = "<group>"; };
+		A23D2A2C10CEFD1400BA421E /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		A23D2A4910CF00A400BA421E /* Mail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mail.h; sourceTree = "<group>"; };
 		A2A16AB910C45E2E009BE185 /* clippy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = clippy.icns; sourceTree = "<group>"; };
 		A2C4B8480E5784510094C8C8 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2C4B84C0E57848F0094C8C8 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -93,18 +71,6 @@
 		A2F414970F7828990044677E /* PTKeyCodeTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCodeTranslator.m; path = PTHotKey/PTKeyCodeTranslator.m; sourceTree = "<group>"; };
 		A2F414980F7828990044677E /* PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCombo.h; path = PTHotKey/PTKeyCombo.h; sourceTree = "<group>"; };
 		A2F414990F7828990044677E /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCombo.m; path = PTHotKey/PTKeyCombo.m; sourceTree = "<group>"; };
-		A2F414A30F7828AC0044677E /* SEAEMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEAEMConstants.h; path = SEGlue/SEAEMConstants.h; sourceTree = "<group>"; };
-		A2F414A40F7828AC0044677E /* SEApplicationGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEApplicationGlue.h; path = SEGlue/SEApplicationGlue.h; sourceTree = "<group>"; };
-		A2F414A50F7828AC0044677E /* SEApplicationGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEApplicationGlue.m; path = SEGlue/SEApplicationGlue.m; sourceTree = "<group>"; };
-		A2F414A60F7828AC0044677E /* SECommandGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SECommandGlue.h; path = SEGlue/SECommandGlue.h; sourceTree = "<group>"; };
-		A2F414A70F7828AC0044677E /* SECommandGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SECommandGlue.m; path = SEGlue/SECommandGlue.m; sourceTree = "<group>"; };
-		A2F414A80F7828AC0044677E /* SEConstantGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEConstantGlue.h; path = SEGlue/SEConstantGlue.h; sourceTree = "<group>"; };
-		A2F414A90F7828AC0044677E /* SEConstantGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEConstantGlue.m; path = SEGlue/SEConstantGlue.m; sourceTree = "<group>"; };
-		A2F414AA0F7828AC0044677E /* SEGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGlue.h; path = SEGlue/SEGlue.h; sourceTree = "<group>"; };
-		A2F414AB0F7828AC0044677E /* SEReferenceGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEReferenceGlue.h; path = SEGlue/SEReferenceGlue.h; sourceTree = "<group>"; };
-		A2F414AC0F7828AC0044677E /* SEReferenceGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEReferenceGlue.m; path = SEGlue/SEReferenceGlue.m; sourceTree = "<group>"; };
-		A2F414AD0F7828AC0044677E /* SEReferenceRendererGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEReferenceRendererGlue.h; path = SEGlue/SEReferenceRendererGlue.h; sourceTree = "<group>"; };
-		A2F414AE0F7828AC0044677E /* SEReferenceRendererGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEReferenceRendererGlue.m; path = SEGlue/SEReferenceRendererGlue.m; sourceTree = "<group>"; };
 		A2F414B40F7828C00044677E /* UKFileWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UKFileWatcher.h; path = UKKQueue/UKFileWatcher.h; sourceTree = "<group>"; };
 		A2F414B50F7828C00044677E /* UKFileWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UKFileWatcher.m; path = UKKQueue/UKFileWatcher.m; sourceTree = "<group>"; };
 		A2F414B60F7828C00044677E /* UKFNSubscribeFileWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UKFNSubscribeFileWatcher.h; path = UKKQueue/UKFNSubscribeFileWatcher.h; sourceTree = "<group>"; };
@@ -122,8 +88,8 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				A2E569CA0E59906C009E0818 /* Carbon.framework in Frameworks */,
-				A21E156210A1904300852552 /* Appscript.framework in Frameworks */,
 				A21E163C10A1906F00852552 /* libicucore.A.dylib in Frameworks */,
+				A23D2A2D10CEFD1400BA421E /* ScriptingBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,12 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				A21E164B10A1914200852552 /* RegexKitLite */,
-				A2039B5A0F781DBD00235DC8 /* MLGlue */,
 				A2D7428C0ECB7FC00036A949 /* HotKeyLib */,
-				A2C95A890EB11C5B00FFF158 /* SEGlue */,
 				A2296CFC0E551DD50097C0DD /* UKKQueue */,
 				A2296D350E5521290097C0DD /* CPWindowController.h */,
 				A2296D360E5521290097C0DD /* CPWindowController.m */,
+				A23D2A2210CEFC5000BA421E /* SystemEvents.h */,
+				A23D2A4910CF00A400BA421E /* Mail.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -160,7 +126,7 @@
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
-				A21E156110A1904300852552 /* Appscript.framework */,
+				A23D2A2C10CEFD1400BA421E /* ScriptingBridge.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -217,25 +183,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A2039B5A0F781DBD00235DC8 /* MLGlue */ = {
-			isa = PBXGroup;
-			children = (
-				A2039B5B0F781DD300235DC8 /* MLAEMConstants.h */,
-				A2039B5C0F781DD300235DC8 /* MLApplicationGlue.h */,
-				A2039B5D0F781DD300235DC8 /* MLApplicationGlue.m */,
-				A2039B5E0F781DD300235DC8 /* MLCommandGlue.h */,
-				A2039B5F0F781DD300235DC8 /* MLCommandGlue.m */,
-				A2039B600F781DD300235DC8 /* MLConstantGlue.h */,
-				A2039B610F781DD300235DC8 /* MLConstantGlue.m */,
-				A2039B620F781DD300235DC8 /* MLGlue.h */,
-				A2039B630F781DD300235DC8 /* MLReferenceGlue.h */,
-				A2039B640F781DD300235DC8 /* MLReferenceGlue.m */,
-				A2039B650F781DD300235DC8 /* MLReferenceRendererGlue.h */,
-				A2039B660F781DD300235DC8 /* MLReferenceRendererGlue.m */,
-			);
-			name = MLGlue;
-			sourceTree = "<group>";
-		};
 		A21E164B10A1914200852552 /* RegexKitLite */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,25 +206,6 @@
 				A2F414BB0F7828C00044677E /* UKMainThreadProxy.m */,
 			);
 			name = UKKQueue;
-			sourceTree = "<group>";
-		};
-		A2C95A890EB11C5B00FFF158 /* SEGlue */ = {
-			isa = PBXGroup;
-			children = (
-				A2F414A30F7828AC0044677E /* SEAEMConstants.h */,
-				A2F414A40F7828AC0044677E /* SEApplicationGlue.h */,
-				A2F414A50F7828AC0044677E /* SEApplicationGlue.m */,
-				A2F414A60F7828AC0044677E /* SECommandGlue.h */,
-				A2F414A70F7828AC0044677E /* SECommandGlue.m */,
-				A2F414A80F7828AC0044677E /* SEConstantGlue.h */,
-				A2F414A90F7828AC0044677E /* SEConstantGlue.m */,
-				A2F414AA0F7828AC0044677E /* SEGlue.h */,
-				A2F414AB0F7828AC0044677E /* SEReferenceGlue.h */,
-				A2F414AC0F7828AC0044677E /* SEReferenceGlue.m */,
-				A2F414AD0F7828AC0044677E /* SEReferenceRendererGlue.h */,
-				A2F414AE0F7828AC0044677E /* SEReferenceRendererGlue.m */,
-			);
-			name = SEGlue;
 			sourceTree = "<group>";
 		};
 		A2D7428C0ECB7FC00036A949 /* HotKeyLib */ = {
@@ -354,18 +282,8 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				A2296D370E5521290097C0DD /* CPWindowController.m in Sources */,
-				A2039B670F781DD300235DC8 /* MLApplicationGlue.m in Sources */,
-				A2039B680F781DD300235DC8 /* MLCommandGlue.m in Sources */,
-				A2039B690F781DD300235DC8 /* MLConstantGlue.m in Sources */,
-				A2039B6A0F781DD300235DC8 /* MLReferenceGlue.m in Sources */,
-				A2039B6B0F781DD300235DC8 /* MLReferenceRendererGlue.m in Sources */,
 				A2F414A00F7828990044677E /* PTKeyCodeTranslator.m in Sources */,
 				A2F414A10F7828990044677E /* PTKeyCombo.m in Sources */,
-				A2F414AF0F7828AC0044677E /* SEApplicationGlue.m in Sources */,
-				A2F414B00F7828AC0044677E /* SECommandGlue.m in Sources */,
-				A2F414B10F7828AC0044677E /* SEConstantGlue.m in Sources */,
-				A2F414B20F7828AC0044677E /* SEReferenceGlue.m in Sources */,
-				A2F414B30F7828AC0044677E /* SEReferenceRendererGlue.m in Sources */,
 				A2F414BC0F7828C00044677E /* UKFileWatcher.m in Sources */,
 				A2F414BD0F7828C00044677E /* UKFNSubscribeFileWatcher.m in Sources */,
 				A2F414BE0F7828C00044677E /* UKKQueue.m in Sources */,

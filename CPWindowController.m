@@ -208,9 +208,8 @@ EventHotKeyRef hot_key_ref;
       {
         NSError  *error      = nil;
         NSArray  *alcaptures = [trimedString captureComponentsMatchedByRegex:aliasRegex];
-        NSString *contents   = [NSString stringWithContentsOfURL:
-                                [NSURL URLWithString:[alcaptures objectAtIndex:2]]
-                                encoding:NSUTF8StringEncoding error:&error];
+        NSURL* contentURL = [NSURL URLWithString:[[alcaptures objectAtIndex:2]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSString* contents = [NSString stringWithContentsOfURL:contentURL encoding:NSUTF8StringEncoding error:&error];
         if (([alcaptures count] == 4) && (error == nil) && (contents != nil && [contents length] > 0))
         {
           [aliasDictionary setValue:contents forKey:[alcaptures objectAtIndex:1]];
